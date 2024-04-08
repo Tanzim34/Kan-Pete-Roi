@@ -1,0 +1,28 @@
+.navbarBottom{
+    background-color: #ce0000;
+    height: 60px;
+
+    .navbarBottomWrapper{
+        display: flex;
+        align-items: center;
+        padding: 20px 30px;
+        justify-content: space-between;
+        color: white;
+
+        .item{
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.5s;
+
+            &:hover{
+                color: red;
+            }
+
+            span{
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.advertTop{
+    padding: 30px 30px 23px 30px;
+    
+    .advertTopContainer{
+        display: flex;
+        cursor: pointer;
+        .middle{
+            display: flex;
+            align-items: center;
+            height: 70px;
+            width: 20px;
+        }
+    }
+}

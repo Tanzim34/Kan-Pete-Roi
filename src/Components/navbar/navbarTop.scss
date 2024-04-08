@@ -1,0 +1,97 @@
+.navbarTop{
+    background-color: #111;
+    height: 50px;
+
+    .navbarContainer{
+        padding: 12.5px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            .item{
+                display: flex;
+                align-items: center;
+                color: #777;
+                cursor: pointer;
+                transition: 0.5s;
+
+                &:hover{
+                    color: white;
+                }
+
+                span{
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+        }
+        .right{
+            position:relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+
+            .item{
+                display: flex;
+                align-items: center;
+                color: #777;
+                cursor: pointer;
+                transition: 0.5s;
+
+                &:hover{
+                    color: white;
+                }
+
+                span{
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+            .icons{
+                display: flex;
+                color: #777;
+                gap: 15px;
+                cursor: pointer;
+
+            }
+
+            .dropDownMenu{
+                position:absolute;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                background-color: white;
+                color: #777;
+                border-bottom: 2px solid #ce0000;
+                top: 37px;
+
+
+                li{
+                    padding: 5px 30px;
+                    transform: 0.5s;
+                    cursor: pointer;
+
+                    a{
+                        font-weight: 500;
+                    }
+                    &:hover{
+                        color: red;
+                    }
+                }
+            
+
+            }
+        }
+
+    }
+}
