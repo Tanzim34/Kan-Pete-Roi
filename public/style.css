@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    word-wrap: break-word;
+    font-family: "Nunito",sans-serif;
+}
+
+body{
+    background-image: url(assets//bg.jpg);
+    background-size: auto;
+    background-repeat: repeat;
+} 

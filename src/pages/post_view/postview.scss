@@ -1,0 +1,43 @@
+.newslist {
+  /* Adjust overall container styles as needed */
+  /* Example: */
+  /* margin: 20px; */
+  /* padding: 10px; */
+}
+
+.list {
+  display: flex; /* Arrange posts horizontally */
+  flex-wrap: wrap; /* Allow posts to wrap to multiple lines */
+  margin: 0 auto; /* Center the list horizontally */
+  width: 80%; /* Adjust width as needed */
+  gap: 20px; /* Add spacing between posts */
+   /* Stack posts vertically */
+}
+
+.singlenews {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 20px;
+  /* Add some shadow for a subtle 3D effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Adjust width as needed */
+  /* Choose between fixed width or flexbox for consistent sizing */
+  width: calc(33% - 20px); /* Example for three posts per row */
+  /* Alternatively, use flexbox for more responsive sizing: */
+  /* flex: 1 0 calc(33.33% - 20px); */
+
+  img{
+    height: inherit;
+    width: calc(33% - 20px);
+  }
+}
+
+.headline {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.body {
+  line-height: 1.5; /* Adjust line spacing as needed */
+}

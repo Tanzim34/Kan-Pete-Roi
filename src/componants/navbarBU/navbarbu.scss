@@ -1,0 +1,79 @@
+.navberbu {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    width: 1000px;
+    margin: auto;
+
+    .navbarcontainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .homecontainer,
+        .worldnews {
+            position: relative;
+            color: inherit;
+
+            button {
+                background-color: transparent;
+                border: none;
+                color: inherit;
+                cursor: pointer;
+                margin-left: 10px;
+
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+
+        .national,
+        .international,
+        .binodhon,
+        .lifestyle,
+        .sports,
+        .searchicon {
+            button {
+                background-color: inherit;
+                border: none;
+                color: black;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .homedropdown,
+    .worlddropdown,
+    .searchinput {
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        background-color: white;
+        color: #333;
+
+        button {
+            border: none;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+    .worlddropdown {
+        left: 360px;
+    }
+
+    .searchinput {
+        left: 1030px;
+    }
+}

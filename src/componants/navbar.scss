@@ -1,0 +1,59 @@
+.navbar {
+    background-color: #333; /* Background color for the navbar */
+    color: #fff; /* Text color for the navbar */
+    padding: 10px 20px; /* Padding for the navbar */
+    width: 1000px; /* Set the width of the navbar */
+    margin: 0 auto; /* Center the navbar horizontally */
+
+    .navbarContainer {
+        display: flex; /* Use flexbox for alignment */
+        justify-content: space-between; /* Align items with space between them */
+        align-items: center; /* Center items vertically */
+
+        .left {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center items vertically */
+
+            svg {
+                width: 24px; /* Adjust the width of the icon */
+                height: 24px; /* Adjust the height of the icon */
+                margin-right: 10px; /* Add some space between the icon and text */
+                transition: color 0.3s ease; /* Add transition effect for smoother hover */
+            }
+        }
+
+        .auth {
+            color: #fff; /* Text color for authentication text */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: color 0.3s ease; /* Add transition effect for smoother hover */
+            display: flex;
+          
+            .login,
+            .signup {
+              /* Styles for login and signup buttons */
+              padding: 10px 20px; /* Add padding for buttons */
+            //   border: 1px solid #ccc; /* Add a border */
+              border-radius: 4px; /* Add rounded corners */
+              cursor: pointer; /* Change cursor to pointer on hover */
+              transition: background-color 0.3s ease; /* Add hover effect */
+              color: white;
+
+              
+            
+              &:hover {
+                background-color: #eee; /* Lighten background on hover */
+              }
+            }
+          }
+    }
+
+    /* Hover effect for authentication text */
+    .auth:hover {
+        color: #ffcc00; /* Change text color on hover */
+    }
+
+    /* Hover effect for the icon */
+    .left svg:hover {
+        color: #ffcc00; /* Change icon color on hover */
+    }
+}
