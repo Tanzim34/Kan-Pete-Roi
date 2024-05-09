@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import "./other.scss"
+import PostView_1 from '../../componants/post_for_users/postview_1';
 
 const Other = () => {
     const[userData,setuser]=useState("")
@@ -43,6 +44,7 @@ const Other = () => {
                         <div className='Flower'>
                             {userData.follwer}
                         </div>
+                        <PostView_1 id={id}></PostView_1>
 
             </div>
         }

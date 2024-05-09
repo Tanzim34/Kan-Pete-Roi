@@ -44,6 +44,7 @@ function LoginPage() {
       // You can handle the successful login here, such as storing the token in local storage and redirecting
       localStorage.setItem('token', token);
       localStorage.setItem('u_id',u_id);
+      localStorage.setItem('name',responseData.name)
       // Redirect to the dashboard or any other page after successful login
       window.location.href = '/';
     } catch (error) {

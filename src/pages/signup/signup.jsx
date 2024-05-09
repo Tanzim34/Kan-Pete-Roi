@@ -61,8 +61,9 @@ function SignUpPage() {
         console.log('Success:', data);
         // Handle successful signup (e.g., redirect to login page)
         if (data.token) {
-          localStorage.setItem('auth_token', data.token); // Replace 'auth_token' with your desired key
-          localStorage.setItem('email',data.email);
+          localStorage.setItem('token', data.token); // Replace 'auth_token' with your desired key
+          localStorage.setItem('name',data.name);
+          localStorage.setItem('u_id',data.u_id);
         } else {
           console.warn('No token received in response');
         }

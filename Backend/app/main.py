@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException,File, UploadFile
 from fastapi.responses import JSONResponse
+import psycopg2
 from sqlalchemy.orm import Session
 from . import tables,user
 from . import user
@@ -19,11 +20,14 @@ from sqlalchemy import Column, Integer, String, TIMESTAMP,Table, desc, select,in
 from fastapi.encoders import jsonable_encoder
 import base64
 import sqlalchemy
+from . import comm
+from psycopg2.extras import RealDictCursor
+
 tables.Base.metadata.create_all(bind=engine)
 user.Base.metadata.create_all(bind=engine)
 tokentable.Base.metadata.create_all(bind=engine)
 img.Base.metadata.create_all(bind=engine)
-
+comm.Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI()
@@ -35,6 +39,12 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
+try:
+    conn=psycopg2.connect(host='localhost',database='news',user='postgres',password='amishawngaliboy420',cursor_factory=RealDictCursor)
+    cur=conn.cursor()
+
+except Exception as error:
+    print("error:",error)
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -275,30 +285,18 @@ def get_comment(id:str,db: Session = Depends(get_db)):
             print(comments_for_post_14)
 
 
+from sqlalchemy.exc import SQLAlchemyError
+
+from sqlalchemy import Table
+
+
+from sqlalchemy import Table, Column, String, select
+from sqlalchemy.exc import SQLAlchemyError
+
+from sqlalchemy.exc import SQLAlchemyError
 
 @app.post("/alu/{id}/comment")
-def up_comment(id: str,db: Session = Depends(get_db)):
-    name = "comment" + id
-    metadata = Base.metadata
-    metadata.reflect(engine)
-    comment_table = metadata.tables.get(name)
-    body11="dadadada"
-    dddd="12"
-    if comment_table is None:
-        print(f"No comment table found for post {id}")
-        return {"message": "Error: Comment table not found"}  # Handle missing table case
-    else:
-        stmt = (
-            insert(comment_table).
-            values(body=body11, u_id=dddd)
-                )
-        print(stmt)
-        try:
-            with engine.connect() as conn:
-                print("SQLAlchemy version:", sqlalchemy.__version__)
-                conn.execute(stmt)
-        except Exception as e:
-            print(f"Error executing insert statement: {e}")
-            return {"message": "Error inserting comment"}  # Handle insertion error
-
-    return {"message": "Comment submitted successfully"}  # Improved success message
+def up_comment(id: str, db_config: dict):
+    cur.execute("""select * from posts""")
+    posts=cur.fetchall()
+    return posts

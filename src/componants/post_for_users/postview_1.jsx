@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
-import "./postview.scss"
+import "./postview_1.scss"
 import View from '../../componants/view/view';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-const PostView = ({ gener }) => {
+const PostView_1 = ({ id }) => {
 
   const [newslist, setNewslist] = useState([]); // Empty array as initial state
   const [alu, setAlu] = useState(false);
 
-  console.log(gener);
+  
 
 
-  let gee=localStorage.getItem('genre');
-
+  let gee=id
+    console.log(id)
   useEffect(() => {
     const alu1 = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/posts/${gee}`, {
+        const response = await fetch(`http://127.0.0.1:8000/posts/u_id/${gee}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         });
@@ -27,18 +27,24 @@ const PostView = ({ gener }) => {
         }
 
         const data = await response.json();
+        if(data.lenght===0){
+            console.log("age")
+            setAlu(true)
+        }
         setNewslist(data);
-        setAlu(true);
+
+        console.log(data)
+       
 
       } catch (error) {
         console.log("error");
       }
     };
 
-    if (gener) {
+    if (gee) {
       alu1();
     }
-  }, [gener]); // Dependency array includes gener for refetch on genre change
+  }, [gee]); // Dependency array includes gener for refetch on genre change
 
   //console.log(newslist)
 
@@ -74,4 +80,4 @@ const PostView = ({ gener }) => {
   );
 };
 
-export default PostView;
+export default PostView_1;
