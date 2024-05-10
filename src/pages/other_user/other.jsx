@@ -8,7 +8,7 @@ const Other = () => {
     const[alu,setalu]=useState(false)
     const { id } = useParams();
     const uid=localStorage.getItem('u_id')
-    console.log(id)
+    //console.log(id)
     const ftc=async()=>{
         const response=await fetch(`http://127.0.0.1:8000/user_2/${id}/${uid}`,
         { // Replace {{userId}} with actual user ID
