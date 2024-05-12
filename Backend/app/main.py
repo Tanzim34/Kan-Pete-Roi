@@ -1,6 +1,5 @@
 from fastapi import Depends, FastAPI, HTTPException,File, UploadFile
 from fastapi.responses import JSONResponse
-import psycopg2
 from sqlalchemy.orm import Session
 from . import tables,user
 from . import user
@@ -20,14 +19,14 @@ from sqlalchemy import Column, Integer, String, TIMESTAMP,Table, desc, select,in
 from fastapi.encoders import jsonable_encoder
 import base64
 import sqlalchemy
-from . import comm
+from . import commmsh
+import psycopg2
 from psycopg2.extras import RealDictCursor
-
 tables.Base.metadata.create_all(bind=engine)
 user.Base.metadata.create_all(bind=engine)
 tokentable.Base.metadata.create_all(bind=engine)
 img.Base.metadata.create_all(bind=engine)
-comm.Base.metadata.create_all(bind=engine)
+
 
 
 app = FastAPI()
@@ -39,6 +38,9 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
 try:
     conn=psycopg2.connect(host='localhost',database='news',user='postgres',password='amishawngaliboy420',cursor_factory=RealDictCursor)
     cur=conn.cursor()
@@ -46,7 +48,6 @@ try:
 except Exception as error:
     print("error:",error)
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 @app.get("/items/")
 async def read_items(token: Annotated[str, Depends(oauth2_scheme)]):
@@ -82,10 +83,29 @@ def get_posts(genre,db: Session = Depends(get_db)):
 
     return p
     
+@app.get("/posts/u_id/{u_id}")
+def get_posts(u_id:int,db: Session = Depends(get_db)):
+    
+    posts=db.query(tables.Post).filter(tables.Post.u_id==u_id).order_by(desc(tables.Post.post_at)).all()
+    p=[]
+    if not posts:
+        return p
+    print("all")
+    for item in posts:
+        photo1 = db.query(img.Imge).filter(img.Imge.p_id == item.id).first()
+        if photo1:
+            photo_bytes = photo1.photo
+        else:
+            photo_bytes = None
+        a1 = PostSch.afterCreate(title=item.title, body=item.body, id=item.id, photo=photo_bytes)
+        p.append(a1)
+
+    return p
+    
 @app.get("/alu/{id}")
 def get_post(id: int, db: Session = Depends(get_db)):
     post = db.query(tables.Post).filter(tables.Post.id == id).first()
-    
+    photo_byte=None
     if post is None:
         raise HTTPException(status_code=404, detail="Post not found")
     
@@ -95,7 +115,10 @@ def get_post(id: int, db: Session = Depends(get_db)):
 
     photo1=db.query(img.Imge).filter(img.Imge.p_id==post.id).first()
 
-    new_pos=PostSch.numi(title=post.title,body=post.body,user_name=use.name,id=post.id,u_id=use.u_id,photo=photo1.photo)
+    if  photo1:
+        photo_byte=photo1.photo
+
+    new_pos=PostSch.numi(title=post.title,body=post.body,user_name=use.name,id=post.id,u_id=use.u_id,photo=photo_byte)
     
     return new_pos
 
@@ -127,6 +150,7 @@ def create_post(post: PostSch.post, db: Session = Depends(get_db)):
         id = Column(Integer, primary_key=True)
         body = Column(String, nullable=False)
         u_id = Column(String, nullable=False)
+        u_name=Column(String,nullable=False)
 
     Base.metadata.create_all(bind=engine)
     return new_post
@@ -154,8 +178,8 @@ def create_user(user_10: userSch.user, db: Session = Depends(get_db)):
         db.add(new_token_row)
         db.commit()
         db.refresh(new_token_row)
-
-        return alu12
+        p=userSch.retu_LogIn(email=alu12.email,name=alu12.name,u_id=alu12.u_id,modify_at=alu12.modify_at,token=token)
+        return p
 
 @app.post('/LogIn', response_model=userSch.retu_LogIn)
 def retu_user(ele: userSch.login_sch, db: Session = Depends(get_db)):
@@ -267,36 +291,34 @@ def add_follower(id: int, use: int, db: Session = Depends(get_db)):
 
 
 
-@app.get("/comment/{id}")
+@app.get("/comment/{id}",response_model=List[commmsh.com_re])
 def get_comment(id:str,db: Session = Depends(get_db)):
     name="comment"+id
     metadata = Base.metadata
     metadata.reflect(engine)
     comment_table = metadata.tables.get(name)
-
+    result=None
     if comment_table is None:
         print(f"No comment table found for post 14")
-
+        return {"nothing"}
+    
     else:
-        query = select(comment_table.c.id,comment_table.c.body,comment_table.c.u_id)
+        query = select(comment_table.c.id,comment_table.c.body,comment_table.c.u_id,comment_table.c.u_name)
         with engine.connect() as conn:
             result = conn.execute(query)
             comments_for_post_14 = result.fetchall()
-            print(comments_for_post_14)
+            return comments_for_post_14
 
 
-from sqlalchemy.exc import SQLAlchemyError
-
-from sqlalchemy import Table
-
-
-from sqlalchemy import Table, Column, String, select
-from sqlalchemy.exc import SQLAlchemyError
-
-from sqlalchemy.exc import SQLAlchemyError
 
 @app.post("/alu/{id}/comment")
-def up_comment(id: str, db_config: dict):
-    cur.execute("""select * from posts""")
+def up_comment(id: str,input:commmsh.CommentInput):
+    name="comment"+id
+    print(input.comm)
+    print(input.u_id)
+    cur.execute("INSERT INTO {} (body, u_id,u_name) VALUES (%s, %s, %s)".format(name), (input.comm, input.u_id,input.u_name))
+    conn.commit()
+    cur.execute("SELECT * FROM {}".format(name))
     posts=cur.fetchall()
     return posts
+

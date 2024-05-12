@@ -19,6 +19,7 @@ const Comm_view = () => {
         console.log('Error fetching comments');
       } else {
         const data = await response.json();
+        console.log(data);
         setComment(data);
         setalu(true); // Show comments after successful fetch
       }
@@ -32,7 +33,7 @@ const Comm_view = () => {
   useEffect(() => {
     fetchComments(); // Fetch comments on component mount
   }, [id]); // Dependency array: fetch only if `id` changes
-
+  console.log(comment.length)
   return (
     <div className='comment'>
       {isLoading ? ( // Display loading indicator while fetching
