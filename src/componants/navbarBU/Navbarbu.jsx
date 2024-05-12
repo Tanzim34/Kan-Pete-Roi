@@ -54,27 +54,42 @@ const Navbarbu = () => {
         </div>
 
         <div className='national'>
-            <button>
+            <button onClick={()=>{
+                localStorage.setItem('genre','National')
+                window.location.reload();
+            }}>
             National
             </button>
         </div>
         <div className='international'>
-            <button>
+            <button onClick={()=>{
+                localStorage.setItem('genre','International')
+                window.location.reload();
+            }}>
             International
             </button>
         </div>
         <div className='binodhon'>
-            <button>
+            <button onClick={()=>{
+                localStorage.setItem('genre','Binodhon')
+                window.location.reload();
+            }}>
             Binodhon
             </button>
         </div>
         <div className='lifestyle'>
-           <button>
+           <button onClick={()=>{
+                localStorage.setItem('genre','Lifestyle')
+                window.location.reload();
+            }}>
            Lifestyle
            </button>
         </div>
         <div className='sports'>
-           <button>
+           <button onClick={()=>{
+                localStorage.setItem('genre','Sports')
+                window.location.reload();
+            }}>
            Sports
            </button>
         </div>
@@ -87,11 +102,7 @@ const Navbarbu = () => {
            <FontAwesomeIcon icon={faSearch} />
            </button>
         </div>
-        <div className='profile'>
-            <Link to="/Cu_user">
-                profile
-            </Link>
-        </div>
+        
       </div>
       {
         homedrop&&<ul className='homedropdown'>

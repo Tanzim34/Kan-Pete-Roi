@@ -2,8 +2,12 @@
     background-color: white;
     color: black;
     padding: 10px;
-    width: 1000px;
-    margin: auto;
+
+    width: calc(1000px - 150px); // Adjusted width to accommodate the drawer
+    margin-left: 350px;
+    margin-top: 30px;
+    
+     // Set the left position to 250px
 
     .navbarcontainer {
         display: flex;

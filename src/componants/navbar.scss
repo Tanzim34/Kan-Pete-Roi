@@ -1,9 +1,10 @@
 .navbar {
     background-color: #333; /* Background color for the navbar */
     color: #fff; /* Text color for the navbar */
-    padding: 10px 20px; /* Padding for the navbar */
-    width: 1000px; /* Set the width of the navbar */
-    margin: 0 auto; /* Center the navbar horizontally */
+    padding: 15px 25px; /* Padding for the navbar */
+    width: 700px; /* Set the width of the navbar */
+    margin: 0 auto;
+    left: 250px; /* Center the navbar horizontally */
 
     .navbarContainer {
         display: flex; /* Use flexbox for alignment */

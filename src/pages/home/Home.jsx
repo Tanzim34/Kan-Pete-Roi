@@ -4,6 +4,7 @@ import "./home.scss";
 import Adbar from '../../componants/Adbar/Adbar';
 import Navbarbu from '../../componants/navbarBU/Navbarbu';
 import PostView from '../post_view/postview';
+import Drawer from '../../componants/drw/drw';
 
 const Home = () => {
 
@@ -15,8 +16,9 @@ const Home = () => {
 
   return (
     <div className='home'>
+      <Drawer></Drawer>
       <Navbar/>
-      <Adbar/>
+      {/* <Adbar/> */}
       <Navbarbu/>
       <PostView gener={"all"}></PostView>
     </div>

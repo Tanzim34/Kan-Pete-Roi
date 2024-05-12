@@ -45,6 +45,8 @@ function LoginPage() {
       localStorage.setItem('token', token);
       localStorage.setItem('u_id',u_id);
       localStorage.setItem('name',responseData.name)
+      localStorage.setItem('email',responseData.email)
+      localStorage.setItem('log','in')
       // Redirect to the dashboard or any other page after successful login
       window.location.href = '/';
     } catch (error) {

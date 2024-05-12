@@ -70,7 +70,7 @@ def get_posts(genre,db: Session = Depends(get_db)):
     
     p=[]
     if not posts:
-        return "Nothing"
+        return p
     print("all")
     for item in posts:
         photo1 = db.query(img.Imge).filter(img.Imge.p_id == item.id).first()
@@ -322,3 +322,8 @@ def up_comment(id: str,input:commmsh.CommentInput):
     posts=cur.fetchall()
     return posts
 
+@app.delete("/logout/{token}")
+def delete_log(token: str, db: Session = Depends(get_db)):
+    db.query(tokentable.token).filter(tokentable.token.token == token).delete()
+    db.commit()
+    return 'ok'

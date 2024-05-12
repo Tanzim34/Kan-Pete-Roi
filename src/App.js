@@ -12,6 +12,7 @@ import View from "./componants/view/view";
 import Other from "./pages/other_user/other";
 
 function App() {
+  //localStorage.setItem('genre','all')
   return (
     <Router>
     <div className="App">

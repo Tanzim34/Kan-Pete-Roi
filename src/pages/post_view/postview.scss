@@ -1,8 +1,13 @@
 .newslist {
   /* Adjust overall container styles as needed */
   /* Example: */
-  /* margin: 20px; */
-  /* padding: 10px; */
+  margin-left: 500px;
+  padding: 20px; 
+  margin-top: 30px;
+  width: 2000px;
+  box-shadow: black;
+  
+  
 }
 
 .list {
@@ -11,7 +16,7 @@
   margin: 0 auto; /* Center the list horizontally */
   width: 80%; /* Adjust width as needed */
   gap: 20px; /* Add spacing between posts */
-   /* Stack posts vertically */
+  /* Stack posts vertically */
 }
 
 .singlenews {
@@ -22,22 +27,23 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* Adjust width as needed */
   /* Choose between fixed width or flexbox for consistent sizing */
-  width: calc(33% - 20px); /* Example for three posts per row */
+  width: calc(50% - 20px); /* Example for three posts per row */
   /* Alternatively, use flexbox for more responsive sizing: */
   /* flex: 1 0 calc(33.33% - 20px); */
 
-  img{
+  img {
     height: inherit;
-    width: calc(33% - 20px);
+    width: 100%; /* Adjust image width to fill the container */
+    border-radius: 4px; /* Optional: Apply border radius to image */
   }
-}
 
-.headline {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+  .headline {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-.body {
-  line-height: 1.5; /* Adjust line spacing as needed */
+  .body {
+    line-height: 1.5; /* Adjust line spacing as needed */
+  }
 }

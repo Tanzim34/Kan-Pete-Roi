@@ -1,0 +1,51 @@
+// drw.scss
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+    z-index: 1000;
+  }
+  
+  .drawer.open {
+    transform: translateX(0); /* Drawer is visible */
+  }
+  
+  .drawer-header {
+    padding: 20px;
+    border-bottom: 1px solid #666;
+  }
+  
+  .drawer-body {
+    padding: 20px;
+  }
+  
+  .drawer-button, .createpost {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .drawer-button:hover, .createpost:hover {
+    background-color: #777;
+  }
+  
+  /* Optional: Style for Create Post button */
+  .createpost {
+    background-color: #ff5722; /* Change color to your preference */
+  }
+  

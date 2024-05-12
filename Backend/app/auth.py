@@ -10,12 +10,12 @@ from fastapi.responses import JSONResponse
 class Auth:
     token:str = None # Define token as a class-level variable
     
-    def create_token(self,email: str, password: str):
+    def create_token(email: str, password: str):
         combined = email + password
         current_time = datetime.now().isoformat()
         combined=combined+current_time
-        self.token = hash_password(combined)  # Assign the token to the class-level variable
-        return self.token  # Return the generated token
+        Auth.token = hash_password(combined)  # Assign the token to the class-level variable
+        return Auth.token  # Return the generated token
     
     def match(self, db: Session = Depends(get_db)):
         if not self.token:
