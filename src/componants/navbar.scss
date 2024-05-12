@@ -1,0 +1,55 @@
+.navbar {
+    background-color: #34a1eb; /* Background color for the navbar */
+    color: #fff; /* Text color for the navbar */
+    padding: 15px 25px; /* Padding for the navbar */
+    padding-left: 50px;
+    margin-top: 10px;
+    width: 95%; /* Set the width of the navbar */
+    margin: 0 auto;
+    left: 250px; /* Center the navbar horizontally */
+
+    .navbarContainer {
+        display: flex; /* Use flexbox for alignment */
+        justify-content: space-between; /* Align items with space between them */
+        align-items: center; /* Center items vertically */
+
+        .Project_Title{
+            margin: 0 auto;
+            padding-left: 140px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: black;
+            font-style:italic;
+        }
+        .left {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center items vertically */
+
+            svg {
+                width: 24px; /* Adjust the width of the icon */
+                height: 24px; /* Adjust the height of the icon */
+                margin-right: 10px; /* Add some space between the icon and text */
+                transition: color 0.3s ease; /* Add transition effect for smoother hover */
+            }
+        }
+
+        .auth {
+            color: lightskyblue; /* Text color for authentication text */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: color 0.3s ease; /* Add transition effect for smoother hover */
+            display: flex;
+          
+            
+          }
+    }
+
+    /* Hover effect for authentication text */
+    .auth:hover {
+        color: #ffcc00; /* Change text color on hover */
+    }
+
+    /* Hover effect for the icon */
+    .left svg:hover {
+        color: #ffcc00; /* Change icon color on hover */
+    }
+}

@@ -1,0 +1,115 @@
+/* Base styles (unchanged) */
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .userpage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+     /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* User information container */
+  
+  .user_information_container {
+    width: calc(33% + 200px); /* Adjust width as needed */
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 10px 0; /* Add margins for spacing */
+  }
+  
+  /* User card (unchanged) */
+  
+  .user_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* ... (rest of styles unchanged) */
+  
+  /* User post section (unchanged) */
+  
+  .user_post {
+    flex: 1; /* Takes up remaining space */
+    flex-direction: column;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+  }
+  
+  /* ... (rest of styles unchanged) */
+  
+  /* User follow list */
+  
+  .user_follow_list {
+    width: calc(33% - 200px); /* Adjust width as needed */
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin: 0 0 10px 0; /* Adjust bottom margin for spacing */
+  }
+  
+  /* Most recent relevant posts */
+  
+  .most_recent_relavent_post {
+    width: calc(33% - 200px); /* Adjust width as needed */
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin: 0 0 10px 0; /* Adjust bottom margin for spacing */
+  }
+  
+  /* Specific styles for small post cards (add inside .most_recent_relavent_post) */
+  
+  .most_recent_relavent_post .small_post_card {
+    /* Styles for individual small post cards */
+    display: inline-block; /* Ensures cards appear side-by-side */
+    width: calc(33% - 10px); /* Adjust width for three cards per row */
+    margin: 0 5px 10px 0; /* Add margins for spacing */
+  }
+  
+  /* Media Queries (unchanged) */
+  
+  @media (max-width: 768px) {
+    .userpage {
+      flex-direction: column;
+    }
+  
+    .user_information_container,
+    .user_post,
+    .user_follow_list,
+    .most_recent_relavent_post {
+      width: 100%;
+    }
+  }
+  
+  /* New layout styles */
+  
+  .userpage {
+    justify-content: space-between; /* Distribute elements horizontally */
+  }
+  
+  .user_follow_list {
+    order: 1; /* Move follow list to the left in the order */
+  }
+  
+  .user_information_container {
+    order: 2; /* Move information container to the middle */
+  }
+  
+  .most_recent_relavent_post {
+    order: 3; /* Move recent posts to the right */
+  }
+  

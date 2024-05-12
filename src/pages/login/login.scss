@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  /* Add background image to the entire body */
+  background: url('background_login.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 60px auto 0; /* Added margin-top of 60px and auto margins for centering */
+  padding: 60px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px; /* Rounded corners */
+  background-color: lightskyblue; /* Added missing semicolon */
+}
+
+/* Style the h2 heading */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold; /* Make the heading bold */
+  font-size: x-large; /* Adjust the font size */
+}
+
+/* Style the form */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Style the email and password fields */
+.login-container .email-field,
+.login-container .pass-field {
+  margin-bottom: 30px;
+  position: relative; /* Add position relative to make absolute positioning of icons work */
+  border-radius: 10px;
+}
+
+/* Style labels for email and password fields */
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold; /* Make labels bold */
+}
+
+/* Style input fields */
+.login-container input {
+  width: calc(100% - 30px); /* Adjusted width to accommodate icon */
+  padding: 10px 10px 10px 40px; /* Adjusted padding to accommodate icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Style the submit button */
+.login-container button[type="submit"] {
+  padding: 10px 12px; /* Reduced padding on the left and right sides */
+  background-color: #007bff;
+  width: 50%;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  margin: auto; /* Add margin:auto to center the button horizontally */
+  display: block; /* Ensure button occupies its own line for centering */
+}
+
+.forgot-password {
+  text-align: center; /* Center the link/button horizontally */
+  margin-top: 10px; /* Add some top margin for spacing */
+}
+
+.forgot-password a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.forgot-password a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.signup {
+  text-align: center; /* Center the link/button horizontally */
+  margin-top: 10px; /* Add some top margin for spacing */
+}
+
+.signup a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.signup a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+/* Style the submit button on hover */
+.login-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style error messages */
+.login-container .error-message {
+  color: #ff0000;
+  margin-top: 10px;
+}
+
+/* Style the icon */
+.input-container .icon {
+  position: absolute;
+  left: 10px; /* Adjust the distance between the icon and input field */
+  top: 50%;
+  transform: translateY(-50%);
+}

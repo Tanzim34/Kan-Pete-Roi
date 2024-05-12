@@ -1,0 +1,94 @@
+/* Signup page styles */
+.signup-container {
+  height: 450px;
+  width: 450px; /* Adjust width as needed */
+  margin: 50px auto; /* Center the container horizontally */
+  padding: 40px;
+  border: 1px solid #ddd; /* Add a border for styling */
+  border-radius: 15px; /* Add rounded corners */
+  background-color: lightskyblue;
+  font-weight: bold;
+  font-size: 18px;
+
+  h2 {
+    font-size: large;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Add some space after the title */
+  }
+
+  form {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack fields vertically */
+
+    div {
+      margin-bottom: 10px; /* Add space between fields */
+
+      label {
+        display: block; /* Make labels on separate lines */
+        margin-bottom: 5px; /* Add space between label and input */
+        font-weight: bold; /* Make labels stand out */
+        font-size: 16px;
+      }
+
+      .input-container {
+        align-items: center;
+        position: relative;
+        display: flex;
+        margin-bottom: 10px;
+        padding: 0 auto;
+        width: 100%; /* Ensure the input container takes up the full width */
+      }
+      
+
+      .input-container .icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ccc; /* Set icon color */
+      }
+
+      input {
+        padding-left: 30px; /* Add space for the icon */
+        border: 1px solid #ccc; /* Add a border for inputs */
+        border-radius: 10px; /* Add rounded corners */
+        width: 90%; /* Make inputs full width */
+        height: 40px;
+        /* Add focus styles (optional) */
+        &:focus {
+          outline: 1px solid #007bff; /* Blue focus outline */
+        }
+      }
+    }
+
+    button {
+      background-color: #007bff; /* Green button color */
+      color: white; /* White text color */
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none; /* Remove default button border */
+      border-radius: 10px; /* Add rounded corners */
+      cursor: pointer; /* Change cursor to pointer on hover */
+      transition: background-color 0.3s ease; /* Add hover effect */
+      width: 50%;
+      margin: 0 auto; /* Center the button horizontally */
+      
+      &:hover {
+        background-color: #0056b3; /* Darker green on hover */
+      }
+    }
+    
+  }
+
+  .pass-warr { /* Styles for password warning message */
+    color: #dc3545; /* Red color for error messages */
+    margin-top: 5px; /* Add some space above the message */
+    font-weight: bold; /* Make the message stand out */
+
+    p {
+      margin: 0; /* Remove default margin for paragraphs */
+    }
+  }
+}

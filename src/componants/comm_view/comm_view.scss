@@ -1,0 +1,47 @@
+/* comm_view.scss */
+
+.comment {
+    /* Styles for the main comment container */
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list {
+    /* Styles for the comment list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .singlecomment {
+    /* Styles for individual comment containers */
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .username {
+    /* Styles for the username element */
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  .body {
+    /* Styles for the comment body */
+  }
+  
+  .comment.loading {
+    /* Styles for when comments are loading */
+    text-align: center;
+  }
+  
+  .comment.loading p {
+    /* Styles for the loading indicator text */
+    margin: 1rem 0;
+  }
+  
